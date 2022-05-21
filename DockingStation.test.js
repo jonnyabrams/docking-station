@@ -34,5 +34,14 @@ describe('DockingStation', () => {
     it('releases a bike that is working', () => {
       expect(station.releaseBike().working).toEqual(true);
     });
+
+    it('releases a bike that is not working', () => {
+      station.dock(bike2);
+      expect(station.releaseBike().working).toEqual(false);
+    });
+
+    it('tells you when there are no bikes available', () => {
+      expect(() => { station.releaseBike() }).toThrowError('No bikes available');
+    });
   });
 });

@@ -11,6 +11,8 @@ class DockingStation {
   }
 
   releaseBike() {
+    if(this.bikes.length === 0) throw new Error('No bikes available');
+    
     return this.bikes.pop();
   }
 };
