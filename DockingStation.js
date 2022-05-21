@@ -1,3 +1,5 @@
+
+
 class DockingStation {
 
   constructor() {
@@ -6,6 +8,10 @@ class DockingStation {
 
   dock(bike) {
     this.bikes.push(bike);
+  }
+
+  releaseBike() {
+    return this.bikes.pop();
   }
 };
 
