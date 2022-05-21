@@ -1,9 +1,11 @@
 const Bike = require('./bike');
+const Van = require('./van');
 
 class DockingStation {
-  constructor(capacity = 5) {
+  constructor(capacity = 5, van = new Van) {
     this.bikes = [];
     this.capacity = capacity;
+    this.van = van;
   };
 
   dock(bike) {
@@ -14,6 +16,7 @@ class DockingStation {
   releaseBike() {
     if(this.#isEmpty()) throw new Error('No bikes available');
     
+    this.#loadBrokenBikesIntoVan();
     return this.bikes.pop();
   }
 
@@ -23,6 +26,14 @@ class DockingStation {
 
   #isEmpty() {
     return this.bikes.length === 0;
+  };
+
+  #loadBrokenBikesIntoVan() {
+    this.bikes.forEach((bike) => {
+      if(bike.isWorking === false) {
+        this.van.trunk.push(bike);
+      };
+    });
   };
 };
 
