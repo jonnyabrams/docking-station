@@ -54,7 +54,7 @@ describe('DockingStation', () => {
       expect(station.releaseBike().working).toEqual(true);
     });
 
-    it('releases a bike that is not working', () => {
+    it('releases a bike that is not working and puts it in the van', () => {
       station.dock(bike2);
       expect(station.releaseBike().working).toEqual(false);
     });
