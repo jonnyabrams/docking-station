@@ -4,6 +4,10 @@ describe('DockingStation', () => {
   const station = new DockingStation;
   const bike1 = { working: true }
   const bike2 = { working: false }
+  const bike3 = { working: true }
+  const bike4 = { working: true }
+  const bike5 = { working: true }
+  const bike6 = { working: true }
 
   it('is an instance of the DockingStation class', () => {
     expect(station).toBeInstanceOf(DockingStation);
@@ -22,11 +26,20 @@ describe('DockingStation', () => {
       expect(station.bikes.length).toEqual(2);
       expect(station.bikes).toEqual([bike1, bike2]);
     });
+
+    it('does not let you dock a bike if the station is at capacity', () => {
+      station.dock(bike3);
+      station.dock(bike4);
+      station.dock(bike5);
+      expect(() => { station.dock(bike6) }).toThrowError('Docking station full');
+    });
   });
 
   describe('release', () => {
     it('can release a bike from the station', () => {
-      station.releaseBike()
+      for(i = 0; i < 4; i++) {
+        station.releaseBike();
+      }
       expect(station.bikes.length).toEqual(1);
       expect(station.bikes).toEqual([bike1]);
     });
