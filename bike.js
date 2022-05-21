@@ -1,6 +1,10 @@
 class Bike {
   constructor() {
-    this.working = true;
+    this.isWorking = true;
+  }
+
+  reportBroken() {
+    this.isWorking = false;
   }
 };
 
