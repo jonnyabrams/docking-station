@@ -7,15 +7,23 @@ class DockingStation {
   };
 
   dock(bike) {
-    if(this.bikes.length === this.capacity) throw new Error('Docking station full');
+    if(this.#isFull()) throw new Error('Docking station full');
     this.bikes.push(bike);
   }
 
   releaseBike() {
-    if(this.bikes.length === 0) throw new Error('No bikes available');
+    if(this.#isEmpty()) throw new Error('No bikes available');
     
     return this.bikes.pop();
   }
+
+  #isFull() {
+    return this.bikes.length === this.capacity;
+  };
+
+  #isEmpty() {
+    return this.bikes.length === 0;
+  };
 };
 
 module.exports = DockingStation;
