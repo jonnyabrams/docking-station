@@ -2,8 +2,8 @@ const DockingStation = require('./dockingStation')
 
 describe('DockingStation', () => {
   const station = new DockingStation;
-  const bike1 = { working: () => true }
-  const bike2 = { working: () => false }
+  const bike1 = { working: true }
+  const bike2 = { working: false }
 
   it('is an instance of the DockingStation class', () => {
     expect(station).toBeInstanceOf(DockingStation);

@@ -1,6 +1,6 @@
 class Bike {
-  constructor(working = true) {
-    this.working = working;
+  constructor() {
+    this.working = true;
   }
 };
 

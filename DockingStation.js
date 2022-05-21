@@ -1,4 +1,4 @@
-
+const Bike = require('./bike');
 
 class DockingStation {
 
