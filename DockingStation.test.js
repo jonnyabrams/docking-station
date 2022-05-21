@@ -17,6 +17,12 @@ describe('DockingStation', () => {
     expect(station.bikes).toEqual([]);
   });
 
+  it('has a default capacity of 5 which can be overridden', () => {
+    expect(station.capacity).toEqual(5);
+    const station2 = new DockingStation(10);
+    expect(station2.capacity).toEqual(10);
+  });
+
   describe('dock', () => {
     it('can dock a bike in the station', () => {
       station.dock(bike1);

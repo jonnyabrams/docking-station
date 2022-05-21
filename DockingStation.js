@@ -1,9 +1,9 @@
 const Bike = require('./bike');
 
 class DockingStation {
-  constructor() {
+  constructor(capacity = 5) {
     this.bikes = [];
-    this.capacity = 5;
+    this.capacity = capacity;
   };
 
   dock(bike) {
