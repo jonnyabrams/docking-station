@@ -1,4 +1,4 @@
-const Bike = require('./bike');
+const Bike = require('../src/bike');
 
 describe(Bike, () => {
   const bike = new Bike;

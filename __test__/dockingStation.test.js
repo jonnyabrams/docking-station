@@ -1,4 +1,4 @@
-const DockingStation = require('./dockingStation')
+const DockingStation = require('../src/dockingStation')
 
 describe('DockingStation', () => {
   const station = new DockingStation;
