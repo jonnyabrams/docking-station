@@ -8,8 +8,6 @@ class Garage {
       bike.isWorking = true;
     });
   };
-
-  // NOW TAKE THE BIKES BACK!
 };
 
 module.exports = Garage
