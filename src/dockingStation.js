@@ -29,9 +29,10 @@ class DockingStation {
   };
 
   #loadBrokenBikesIntoVan() {
-    this.bikes.forEach((bike) => {
+    this.bikes.forEach((bike, index) => {
       if(bike.isWorking === false) {
         this.van.trunk.push(bike);
+        delete this.bikes[index];
       };
     });
   };

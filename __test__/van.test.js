@@ -14,6 +14,15 @@ describe('Van', () => {
     it('takes the broken bikes to the garage to be fixed', () => {
       van.driveToGarage();
       expect(van.garage.storage.length).toEqual(2);
+      expect(van.trunk.length).toEqual(0);
+    });
+  });
+
+  describe('collectFromGarage', () => {
+    it('picks up fixed bikes from the garage', () => {
+      van.collectFromGarage();
+      expect(van.trunk.length).toEqual(2);
+      expect(van.garage.storage.length).toEqual(0);
     });
   });
 });
