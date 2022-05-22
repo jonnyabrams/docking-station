@@ -1,4 +1,3 @@
-const Bike = require('./bike');
 const Van = require('./van');
 
 class DockingStation {
@@ -36,11 +35,14 @@ class DockingStation {
   };
 
   #loadBrokenBikesIntoVan() {
-    this.bikes.forEach((bike, index) => {
-      if(bike.isWorking === false) {
+    this.bikes = this.bikes.filter((bike) => {
+      if(!bike.isWorking) {
         this.van.trunk.push(bike);
-        delete this.bikes[index];
-      };
+
+        return false;
+      }
+
+      return true;
     });
   };
 };

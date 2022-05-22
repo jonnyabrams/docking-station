@@ -2,7 +2,11 @@
 
 When I finished the Makers Academy boot camp in May 2022 I decided to consolidate what I'd learned about TDD by going back over some of the Ruby exercises they'd set us along the way, this time doing them in JavaScript.
 
-The first of these was the 'Boris Bikes' (I prefer 'docking station') challenge, which works as follows in the Node REPL:
+The first of these was the 'Boris Bikes' (I prefer 'docking station') challenge, which asks you to make a docking station that can dock and release bikes, with a specified capacity that can be overridden.
+
+Furthermore, bikes can be reported as broken and loaded into a van to be taken to a garage, where they can be fixed and subsequently returned to the docking station by van.
+
+## Interface Example
 
 ```
 ➜  src git:(main) ✗ node
@@ -44,12 +48,7 @@ DockingStation {
 Bike { isWorking: true }
 > station
 DockingStation {
-  bikes: [
-    Bike { isWorking: true },
-    <1 empty item>,
-    Bike { isWorking: true },
-    <1 empty item>
-  ],
+  bikes: [ Bike { isWorking: true }, Bike { isWorking: true } ],
   capacity: 5,
   van: Van { trunk: [ [Bike], [Bike] ], garage: Garage { storage: [] } }
 }
@@ -133,3 +132,10 @@ DockingStation {
 }
 > 
 ```
+
+## Technologies Used
+
+* JavaScript
+* Node.js
+* Jest
+* Simple
