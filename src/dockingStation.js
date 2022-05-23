@@ -5,34 +5,34 @@ class DockingStation {
     this.bikes = [];
     this.capacity = capacity;
     this.van = van;
-  };
+  }
 
   dock(bike) {
     if(this.#isFull()) throw new Error('Docking station full');
     this.bikes.push(bike);
-  };
+  }
 
   releaseBike() {
     if(this.#isEmpty()) throw new Error('No bikes available');
     
     this.#loadBrokenBikesIntoVan();
     return this.bikes.pop();
-  };
+  }
 
   returnFixedBikes() {
     this.van.trunk.forEach((bike) => {
       this.bikes.push(bike);
     });
     this.van.trunk = [];
-  };
+  }
 
   #isFull() {
     return this.bikes.length === this.capacity;
-  };
+  }
 
   #isEmpty() {
     return this.bikes.length === 0;
-  };
+  }
 
   #loadBrokenBikesIntoVan() {
     this.bikes = this.bikes.filter((bike) => {
@@ -44,7 +44,7 @@ class DockingStation {
 
       return true;
     });
-  };
-};
+  }
+}
 
 module.exports = DockingStation;

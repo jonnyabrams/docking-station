@@ -11,14 +11,14 @@ class Van {
       this.garage.storage.push(bike);
     });
     this.trunk = [];
-  };
+  }
 
   collectFromGarage() {
     this.garage.storage.forEach((bike) => {
       this.trunk.push(bike);
     });
     this.garage.storage = [];
-  };
+  }
 };
 
 module.exports = Van
