@@ -17,6 +17,10 @@ describe('DockingStation', () => {
     expect(station.bikes).toEqual([]);
   });
 
+  it('has a van', () => {
+    expect(station.van).toEqual({ trunk: [], garage: { storage: [] } })
+  })
+
   it('has a default capacity of 5 which can be overridden', () => {
     expect(station.capacity).toEqual(5);
     const station2 = new DockingStation(10);
@@ -57,7 +61,7 @@ describe('DockingStation', () => {
     });
 
     it('puts a bike that is not working in the van', () => {
-      station3 = new DockingStation(5, { trunk: [] })
+      station3 = new DockingStation(5, { trunk: [] });
       station3.dock(bike2);
       station3.releaseBike();
       expect(station3.van.trunk).toEqual([bike2]);
@@ -65,6 +69,19 @@ describe('DockingStation', () => {
 
     it('tells you when there are no bikes available', () => {
       expect(() => { station.releaseBike() }).toThrowError('No bikes available');
+    });
+  });
+
+  describe('returnFixedBikes', () => {
+    it('transfers fixed bikes from van to docking station', () => {
+      const station4 = new DockingStation(5, { trunk: [
+        { isWorking: true }, { isWorking: true }
+      ]});
+      expect(station4.van.trunk.length).toEqual(2);
+      expect(station4.bikes.length).toEqual(0);
+      station4.returnFixedBikes();
+      expect(station4.bikes.length).toEqual(2);
+      expect(station4.van.trunk.length).toEqual(0);
     });
   });
 });
